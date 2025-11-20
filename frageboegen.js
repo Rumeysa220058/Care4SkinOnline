@@ -1,49 +1,27 @@
-// datei: frageboegen.js
+// Hole das <main> Element
+const content = document.getElementById('content');
 
-// Den gesamten HTML-Inhalt in eine Variable packen
-const htmlContent = `
-<header>
-    <div class="logo">Care4Skin</div>
-    <nav>
-        <a href="../index.html">Startseite</a>
-        <a href="frageboegen.html">Fragebögen</a>
-        <a href="impressum.html">Impressum</a>
-    </nav>
-</header>
+// HTML nur für den Main-Bereich
+const frageboegenHTML = `
+  <div class="frageboegen-container">
+    <h2>Wähle deinen Fragebogen</h2>
+    <p>Beantworte einige Fragen und erhalte personalisierte Hautpflege-Empfehlungen</p>
 
-<main>
-    <div class="frageboegen-container">
-        <div class="frageboegen-header">
-            <h2>Wähle deinen Fragebogen</h2>
-            <p>Beantworte einige Fragen und erhalte personalisierte Hautpflege-Empfehlungen</p>
-        </div>
-        
-        <div class="frageboegen-auswahl">
-            <div class="fragebogen-karte hauttyp">
-                <h3>Hauttyp Analyse</h3>
-                <p>Finde heraus welcher Hauttyp du bist und erhalte passende Pflegeempfehlungen.</p>
-                <p><strong>6 Fragen</strong> • Dauer: 3-5 Minuten</p>
-                <button class="fragebogen-button" onclick="location.href='hauttyp-fragebogen.html'">
-                    Hauttyp Test starten
-                </button>
-            </div>
-            
-            <div class="fragebogen-karte hautkrankheiten">
-                <h3>Hautprobleme & Prävention</h3>
-                <p>Erhalte Tipps bei Hautproblemen und lerne wie du vorbeugen kannst.</p>
-                <p><strong>6 Fragen</strong> • Dauer: 3-5 Minuten</p>
-                <button class="fragebogen-button" onclick="location.href='hautprobleme-fragebogen.html'">
-                    Hautprobleme Test starten
-                </button>
-            </div>
-        </div>
+    <div class="frageboegen-auswahl">
+      <div class="fragebogen-karte hauttyp">
+        <h3>Hauttyp Analyse</h3>
+        <p>Finde heraus welcher Hauttyp du bist.</p>
+        <button onclick="location.href='hauttyp-fragebogen.html'">Hauttyp Test starten</button>
+      </div>
+
+      <div class="fragebogen-karte hautkrankheiten">
+        <h3>Hautprobleme & Prävention</h3>
+        <p>Erhalte Tipps bei Hautproblemen.</p>
+        <button onclick="location.href='hautprobleme-fragebogen.html'">Hautprobleme Test starten</button>
+      </div>
     </div>
-</main>
-
-<footer>
-    <p>&copy; 2025 Care4Skin | <a href="datenschutz.html">Datenschutz</a></p>
-</footer>
+  </div>
 `;
 
-// HTML in den body schreiben
-document.body.innerHTML = htmlContent;
+// HTML in <main> schreiben
+content.innerHTML = frageboegenHTML;
