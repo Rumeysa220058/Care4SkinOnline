@@ -1,27 +1,23 @@
-// Hole das <main> Element
-const content = document.getElementById('content');
+/*
+Button klicken → Weiterleitung starten
+Optional: Werte aus Formularen / Auswahl speichern
+*/
 
-// HTML nur für den Main-Bereich
-const frageboegenHTML = `
-  <div class="frageboegen-container">
-    <h2>Wähle deinen Fragebogen</h2>
-    <p>Beantworte einige Fragen und erhalte personalisierte Hautpflege-Empfehlungen</p>
+// Wartet, bis die HTML-Seite geladen ist
+document.addEventListener('DOMContentLoaded', function() {
+    // Alle Buttons abrufen
+    const hauttypButton = document.querySelector('.hauttyp .fragebogen-button');
+    const hautproblemeButton = document.querySelector('.hautkrankheiten .fragebogen-button');
 
-    <div class="frageboegen-auswahl">
-      <div class="fragebogen-karte hauttyp">
-        <h3>Hauttyp Analyse</h3>
-        <p>Finde heraus welcher Hauttyp du bist.</p>
-        <button onclick="location.href='hauttyp-fragebogen.html'">Hauttyp Test starten</button>
-      </div>
+    // Klick-Event für Hauttyp-Test
+    hauttypButton.onclick = function() {
+        // Optional: hier Werte aus Formularen speichern
+        window.location.href = 'hauttyp-fragebogen.html';
+    };
 
-      <div class="fragebogen-karte hautkrankheiten">
-        <h3>Hautprobleme & Prävention</h3>
-        <p>Erhalte Tipps bei Hautproblemen.</p>
-        <button onclick="location.href='hautprobleme-fragebogen.html'">Hautprobleme Test starten</button>
-      </div>
-    </div>
-  </div>
-`;
-
-// HTML in <main> schreiben
-content.innerHTML = frageboegenHTML;
+    // Klick-Event für Hautprobleme-Test
+    hautproblemeButton.onclick = function() {
+        // Optional: hier Werte aus Formularen speichern
+        window.location.href = 'hautprobleme-fragebogen.html';
+    };
+});
