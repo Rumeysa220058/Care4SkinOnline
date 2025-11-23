@@ -1,0 +1,102 @@
+/* Fragebögen Container */
+.frageboegen-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.frageboegen-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.frageboegen-header h2 {
+    color: #4A90E2;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.frageboegen-header p {
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Auswahl der Fragebögen - GRÖSSERE KÄSTCHEN */
+.frageboegen-auswahl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.fragebogen-karte {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fragebogen-karte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.25);
+    border-color: #4A90E2;
+}
+
+.fragebogen-karte.hauttyp {
+    background: linear-gradient(135deg, #E3F2FD, #FFFFFF);
+}
+
+.fragebogen-karte.hautkrankheiten {
+    background: linear-gradient(135deg, #E8F5E8, #FFFFFF);
+}
+
+.fragebogen-karte h3 {
+    color: #4A90E2;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.fragebogen-karte p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.fragebogen-details {
+    background: rgba(74, 144, 226, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    color: #2C3E50;
+    font-weight: bold;
+}
+
+.fragebogen-button {
+    background: #4A90E2;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.fragebogen-button:hover {
+    background: #357ABD;
+    transform: scale(1.05);
+}

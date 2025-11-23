@@ -1,0 +1,139 @@
+/* Hintergrund hellblau Verlauf */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #86b7d6, #f1faee);
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frage label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+/* Header */
+header {
+    width: 100%;
+    background-color: #457b9d;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+/* Container für Fragebogen */
+.frageboegen-container {
+    max-width: 600px;
+    width: 90%;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    line-height: 1.2; /* damit Zeilen wie "Hauttyp Analyse" schön untereinander stehen */
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.fragebogen-button {
+    background: #1d3557;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fragebogen-button:hover {
+    background: #457b9d;
+    transform: scale(1.05);
+}
+
+/* Fragen */
+#fragebogen {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.frage {
+    margin-bottom: 1.5rem;
+}
+
+/* Popup Ergebnis */
+/* Ergebnis-Karte schöner gestalten */
+#ergebnis {
+    margin-top: 2rem;
+    background: #ffffffdd;
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    text-align: left;
+    line-height: 1.6;
+}
+
+#ergebnis.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Überschriften im Ergebnis */
+#ergebnis h3 {
+    color: #1d3557;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.5rem;
+}
+
+#ergebnis p {
+    margin-bottom: 1rem;
+}
+
+/* Hervorhebung für "Zu vermeiden" */
+#ergebnis .vermeiden {
+    background: #f8d7da;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    color: #721c24;
+}
+
+.frage label {
+  display: inline-block;
+  margin: 5px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.frage input {
+  margin-right: 5px;
+}
+

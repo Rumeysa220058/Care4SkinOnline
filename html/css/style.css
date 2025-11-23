@@ -1,0 +1,130 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body */
+body {
+  background: linear-gradient(to bottom, #ccefff, #e6f7ff); /* sanfter Hellblau-Verlauf */
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: rgba(255,255,255,0.3);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: #0a527b;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 6rem 2rem; /* mehr Abstand unten zu den Karten */
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #004a70;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #006699;
+}
+
+/* Auswahl-Karten */
+.auswahl-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;          /* Abstand zwischen den Pop-ups */
+  flex-wrap: wrap;
+  padding: 2rem;
+  margin-top: -2rem;   /* optional, um Hero-Text nicht zu weit weg */
+}
+
+.karte {
+  background: linear-gradient(to bottom right, #d9f0ff, #aee0ff);
+  border-radius: 15px;
+  padding: 2rem 2rem;  /* mehr Innenabstand, größere Karte */
+  width: 450px;         /* breite der Karte */
+  min-height: 200px;    /* Höhe der Karte */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.karte h2 {
+  font-size: 2rem;     /* größere Überschrift */
+  margin-bottom: 1rem;
+  color: #004a70;
+}
+
+.karte p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem; /* Abstand zwischen Text und Button vergrößert */
+  color: #003f5c;
+}
+
+/* Button auf Karte */
+.karte button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.karte button:hover {
+  background-color: #005f99;
+  transform: translateY(-3px);
+}
+
+/* Hover-Effekt für Karte */
+.karte:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  color: #004a70;
+}
+
+footer a {
+  color: #003f5c;
+  text-decoration: underline;
+}
