@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Punkte gesamt: " + summe);
 
         // DATENBANK ABFRAGE
-        fetch("http://localhost/care4skin/backend/get_tipps.php")
+        fetch("http://localhost/Care4Skin-main/backend/get_tipps.php")
             .then(res => {
                 if (!res.ok) {
                     throw new Error("Fehler beim Laden der Tipps");
