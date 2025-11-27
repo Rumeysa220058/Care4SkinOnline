@@ -1,6 +1,6 @@
 /* Reset */
 * {
-  margin: 0;
+  margin: 0; 
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
@@ -8,7 +8,7 @@
 
 /* Body */
 body {
-  background: linear-gradient(to bottom, #ccefff, #e6f7ff); /* sanfter Hellblau-Verlauf */
+  background: linear-gradient(to bottom, #ccefff, #e6f7ff); /* sanfter Hellblau-Verlauf */ 
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -60,13 +60,13 @@ nav a:hover {
 }
 
 /* Auswahl-Karten */
-.auswahl-container {
+.auswahl-container {  
   display: flex;
   justify-content: center;
-  gap: 3rem;          /* Abstand zwischen den Pop-ups */
+  gap: 3rem;        /*   Abstand zwischen den Pop-ups */
   flex-wrap: wrap;
   padding: 2rem;
-  margin-top: -2rem;   /* optional, um Hero-Text nicht zu weit weg */
+  margin-top: -2rem;   
 }
 
 .karte {
