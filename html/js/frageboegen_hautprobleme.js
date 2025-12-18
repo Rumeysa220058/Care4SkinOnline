@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
         "Wie fühlt sich Ihre Haut an?",
         "Haben Sie häufig Juckreiz oder Brennen?",
         "Welche Stellen sind am meisten betroffen?"
-    ];
+    ]; 
 
+    
     const antworten = [
         ["Glatt und gleichmäßig", "Rötlich oder mit sichtbaren Äderchen", "Unrein mit Pickeln oder Mitessern", "Trockene, schuppige Stellen", "Gereizt, mit Juckreiz oder Brennen"],
         ["Keine Reaktion", "Brennt oder rötet sich leicht", "Wird schnell fettig und bekommt Unreinheiten", "Wird trockener oder spannt", "Wird heiß oder rötet sich an Wangen und Nase"],
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ["Glatt und normal", "Brennend oder heiß", "Fettig mit Unterlagerungen", "Rau, gespannt oder schuppig", "Juckend oder kribbelnd"],
         ["Nein, kaum", "Ja, vor allem nach bestimmten Produkten", "Nur wenn Pickel entzündet sind", "Manchmal, wenn die Haut sehr trocken ist", "Leichtes Brennen oder Wärmegefühl im Gesicht"],
         ["Keine bestimmten Stellen", "Wangen, Nase, Stirn", "Stirn, Nase, Kinn, Rücken", "Arme, Hände, Beine", "Unterschiedlich, je nach Reizstoff"]
-    ];
+    ]; 
 
     const startButton = document.getElementById("startButton");
     const fragebogenForm = document.getElementById("fragebogenForm");

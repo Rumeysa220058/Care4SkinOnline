@@ -69,7 +69,7 @@ header nav a {
     margin-bottom: 12px;
 }
 /* Antworten Hover-Effekt */
-label:hover {
+label:hover { /* Hover-Effekt für Antworten */
     background-color: #e0f0f7;
     transform: translateX(3px); /* kleine Bewegung beim Hover */
 } 
