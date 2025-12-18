@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Care4Skin — Fragebogen</title>
+<link rel="stylesheet" href="assets/styles.css">        <!-- Startseite CSS -->
+<link rel="stylesheet" href="assets/styles_survey.css"> <!-- Survey-spezifisches CSS -->
+</head>
+<body class="survey-page">
+
+<!-- Header -->
+<header>
+  <div class="logo">Care4Skin</div>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="#">DSGVO</a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+</header>
+
+<!-- Container -->
+<div class="container">
+
+  <!-- Info-Kasten -->
+  <div class="survey-info">
+    <h2>Hauttyp Fragebogen</h2>
+    <p>Beantworte die Fragen, um deinen Hauttyp zu ermitteln und Tipps zu erhalten.</p>
+  </div>
+
+  <!-- Fragen werden hier generiert -->
+  <div id="questions-server-rendered"></div>
+
+  <!-- Ergebnisbereich -->
+  <div id="survey-result"></div>
+
+  <!-- Submit Button -->
+  <div style="text-align:center; margin-top:24px;">
+    <button type="submit" class="survey-btn">Ergebnis anzeigen</button>
+  </div>
+</div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
