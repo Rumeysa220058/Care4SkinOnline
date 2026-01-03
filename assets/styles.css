@@ -14,14 +14,16 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
 header {
-  background: rgba(255,255,255,0.3);
+  width: 100%;
+  background: rgba(255,255,255,0.9);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .logo {
