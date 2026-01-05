@@ -18,7 +18,7 @@ try {
     die("Datenbankfehler: " . $e->getMessage());
 }
 
-// 2️⃣ Benutzer-ID
+// Benutzer-ID
 $user_id = 1; // Beispiel
 
 // 3️⃣ Punkte summieren
