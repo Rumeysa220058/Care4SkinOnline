@@ -1,9 +1,11 @@
+/* Gesamter Impressumsbereich */
 .impressum-container {
   max-width: 1100px;
   margin: 60px auto;
   padding: 20px;
 }
 
+/* Erklärungstext */
 .school-text {
   font-size: 1.1rem;
   color: #003f5c;
@@ -11,7 +13,7 @@
   line-height: 1.7;
 }
 
-/* Nur Layout der unteren zwei Popups */
+/* Container für die Karten */
 .popup-row {
   display: flex;
   justify-content: center;
@@ -19,17 +21,24 @@
   flex-wrap: wrap;
 }
 
-/* Popup-Gefühl, OHNE Text zu verändern */
+/* Karten-Design */
 .popup-row .karte {
+  background: #ffffff;
+  padding: 30px;
+  width: 320px;
+  border-radius: 12px;
+
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover-Effekt */
 .popup-row .karte:hover {
   transform: translateY(-10px);
   box-shadow: 0 14px 35px rgba(0,0,0,0.18);
 }
 
+/* Mobile Ansicht */
 @media (max-width: 900px) {
   .popup-row {
     flex-direction: column;
