@@ -262,3 +262,4 @@ INSERT INTO survey_result_tips VALUES
 (NULL,'prevention','allergisch','tips','Minimalistische Pflege'),
 (NULL,'prevention','allergisch','tips','Dermatologisch getestet');
 
+
