@@ -21,7 +21,7 @@ try {
 // Benutzer-ID
 $user_id = 1; // Beispiel
 
-// 3️⃣ Punkte summieren
+//  Punkte summieren
 $stmt = $pdo->prepare("
     SELECT survey_type, SUM(points) AS total_points
     FROM survey_answers
