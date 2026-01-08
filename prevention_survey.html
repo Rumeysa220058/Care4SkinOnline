@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Care4Skin — Fragebogen</title>
-<link rel="stylesheet" href="assets/styles.css">        <!-- Startseite CSS -->
-<link rel="stylesheet" href="assets/styles_survey.css"> <!-- Survey-spezifisches CSS -->
+<title>Care4Skin — Prävention Fragebogen</title>
+
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/styles_survey.css">
 </head>
+
 <body class="survey-page">
 
-<!-- Header über volle Breite -->
 <header>
   <div class="logo">Care4Skin</div>
   <nav>
@@ -21,30 +22,31 @@
 
 <div class="container">
 
-  <!-- Info-Kasten -->
+  <!-- Info -->
   <div class="survey-info">
-    <h2>Hautprobleme und Prävention Fragebogen</h2>
-    <p>Beantworte die Fragen, um deinen Hautproblem zu ermitteln und Tipps zu erhalten.</p>
+    <h2>Hautprobleme & Prävention</h2>
+    <p>Beantworte die Fragen und erhalte passende Empfehlungen.</p>
   </div>
 
-  <!-- Fragebogen Formular -->
-  <form action="submit_survey.php" method="post">
-    <input type="hidden" name="survey_id" value="">
+  <!-- FORM ist PFLICHT -->
+  <form id="survey-form"data-survey="prevention">
 
-    <!-- Fragen werden vom JS generiert -->
+    <!-- Fragen aus DB -->
     <div id="questions-server-rendered"></div>
 
-    <!-- Ergebnisbereich -->
-    <div id="survey-result"></div>
+    <!-- Button -->
+    <button type="submit" class="survey-btn">
+      Ergebnis anzeigen
+    </button>
 
-    <!-- Submit Button -->
-    <div style="text-align:right; margin-top:18px">
-      <button type="submit" class="survey-btn">Ergebnis anzeigen</button>
-    </div>
   </form>
+
+  <!-- Ergebnis -->
+  <div id="survey-result"></div>
 
 </div>
 
 <script src="assets/app.js" defer></script>
+<script src="assets/calculate_points.js" defer></script>
 </body>
 </html>
