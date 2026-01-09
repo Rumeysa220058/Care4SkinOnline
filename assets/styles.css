@@ -1,37 +1,39 @@
 /* Reset */
-* {
+* { 
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
 }
 
+
+
+header { 
+  position: fixed;      /*fixiert den Header */
+  top: 0;               /* immer oben */
+  left: 0;
+  width: 100%; 
+  margin: 0 auto;       /* zentriert den Header */
+  background: rgba(255,255,255,0.9);
+  padding: 1rem 2rem;
+  display: flex; /* Flexbox für Layout */
+  justify-content: space-between; 
+  align-items: center; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+  box-sizing: border-box; 
+}
+
 /* Body */
-body {
+body { 
+  padding-top: 100px; /* Header-Höhe */
   background: linear-gradient(to bottom, #ccefff, #e6f7ff); /* sanfter Hellblau-Verlauf */ 
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
 }
 
-header {
-  width: 100%;
-  background: rgba(255,255,255,0.9);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  box-sizing: border-box;
-  margin: 0;
-}
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-nav a {
+nav a { 
   color: #0a527b;
   text-decoration: none;
   margin-left: 1.5rem;
@@ -40,7 +42,7 @@ nav a {
   transition: background 0.3s;
 }
 
-nav a:hover {
+nav a:hover { 
   background: rgba(0,0,0,0.05);
 }
 
@@ -63,18 +65,19 @@ nav a:hover {
 
 /* Auswahl-Karten */
 .auswahl-container {  
-  display: flex;
-  justify-content: center;
+  display: flex; /* Flexbox für Layout */
+  justify-content: center; 
   gap: 3rem;        /*   Abstand zwischen den Pop-ups */
   flex-wrap: wrap;
   padding: 2rem;
   margin-top: -2rem;   
 }
 
+
 .karte {
   background: linear-gradient(to bottom right, #d9f0ff, #aee0ff);
-  border-radius: 15px;
-  padding: 2rem 2rem;  /* mehr Innenabstand, größere Karte */
+  border-radius: 15px; 
+  padding: 2rem 4rem;  /* mehr Innenabstand, größere Karte */
   width: 450px;         /* breite der Karte */
   min-height: 200px;    /* Höhe der Karte */
   text-align: center;
@@ -82,14 +85,25 @@ nav a:hover {
   transition: all 0.3s ease;
 }
 
-.karte h2 {
+.karte3 {
+  background: linear-gradient(to bottom right, #d9f0ff, #aee0ff);
+  border-radius: 15px; 
+  padding: 2rem 4rem;  /* mehr Innenabstand, größere Karte */
+  width: 450px;         /* breite der Karte */
+  min-height: 200px;    /* Höhe der Karte */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.karte h2 { 
   font-size: 2rem;     /* größere Überschrift */
   margin-bottom: 1rem;
   color: #004a70;
 }
 
-.karte p {
-  font-size: 1.2rem;
+.karte p { 
+  font-size: 1.2rem; 
   margin-bottom: 1rem; /* Abstand zwischen Text und Button vergrößert */
   color: #003f5c;
 }
@@ -99,8 +113,8 @@ nav a:hover {
   background-color: #007acc;
   color: white;
   border: none;
-  padding: 14px 30px;
-  border-radius: 25px;
+  padding: 14px 30px; 
+  border-radius: 25px; 
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
@@ -114,19 +128,40 @@ nav a:hover {
 
 /* Hover-Effekt für Karte */
 .karte:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px);  
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.karte3:hover {
+  transform: translateY(-10px);  
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
+footer { 
+  text-align: center; 
+  padding: 2rem; 
   margin-top: 4rem;
   color: #004a70;
 }
 
 footer a {
   color: #003f5c;
-  text-decoration: underline;
+  text-decoration: underline; 
+}
+
+
+.logo {
+  display: flex;        
+  align-items: center;
+  gap: 0;               /* kein Abstand */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.logo img {
+  height: 70px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
 }

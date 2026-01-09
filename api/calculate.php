@@ -1,5 +1,5 @@
 <?php
-// 1️⃣ DB-Verbindung
+// DB-Verbindung
 $host = 'localhost';
 $db   = 'care4skin';
 $user = 'root';
