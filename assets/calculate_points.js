@@ -5,40 +5,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     // Prüfen, ob alle Fragen beantwortet wurden
-const totalQuestions = container.querySelectorAll(".question-card").length;
-const answeredQuestions = new Set(
-  [...container.querySelectorAll("input[type=radio]:checked")]
-    .map(input => input.name)
-).size;
+    const totalQuestions = container.querySelectorAll(".question-card").length;
+    const answeredQuestions = new Set(
+      [...container.querySelectorAll("input[type=radio]:checked")]
+        .map(input => input.name)
+    ).size;
 
-if (answeredQuestions < totalQuestions) {
-  resultDiv.innerHTML = `
-    <p style="
-      color: #b00020;
-      font-weight: bold;
-      background: #fdecea;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #f5c2c7;
-    ">
-    Bitte zuerst alle Fragen beantworten.
-    </p>
-  `;
-  resultDiv.scrollIntoView({ behavior: "smooth" });
-  return; // Ergebnis NICHT berechnen
-}
-
-    e.preventDefault();
+    if (answeredQuestions < totalQuestions) {
+      resultDiv.innerHTML = `
+        <p style="
+          color: #b00020;
+          font-weight: bold;
+          background: #fdecea;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #f5c2c7;
+        ">
+          Bitte zuerst alle Fragen beantworten.
+        </p>
+      `;
+      resultDiv.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
 
     // Punkte summieren
     const totalPoints = [...container.querySelectorAll("input[type=radio]:checked")]
       .reduce((sum, input) => sum + parseInt(input.dataset.points), 0);
 
-    // Survey-Typ aus hidden input oder URL
-    const survey = form.dataset.survey || 'prevention';
+    const survey = form.dataset.survey || "prevention";
 
-    // Ergebnis vom Server abrufen
     try {
       const res = await fetch("api/get_result.php", {
         method: "POST",
@@ -48,87 +45,66 @@ if (answeredQuestions < totalQuestions) {
 
       const data = await res.json();
 
-     
-// Ergebnis anzeigen
-// Ergebnis anzeigen
-if (survey === 'skin') {
-  const minPoints = 6;
-  const maxPoints = 30;
-  const normalized = ((totalPoints - minPoints) / (maxPoints - minPoints)) * 100;
+      // =========================
+      // BALKEN-WERT FESTLEGEN
+      // =========================
+      let normalized = 50;
 
-  resultDiv.innerHTML = `
-    <h2>Dein Ergebnis</h2>
-    <p><strong>${data.type}</strong></p>
-    <p>${data.description}</p>
+      if (survey === "skin") {
+        const type = data.type.toLowerCase();
 
-    <!-- Hauttyp-Balken -->
-    <div class="skin-bar-container">
-      <span class="skin-bar-label left">Trocken</span>
-      <div class="skin-bar-wrapper">
-        <div class="skin-bar">
-          <div class="skin-bar-fill" style="width: ${normalized}%;"></div>
+        if (type.includes("trocken")) normalized = 15;
+        else if (type.includes("normal")) normalized = 40;
+        else if (type.includes("misch")) normalized = 60;
+        else if (type.includes("fett")) normalized = 85;
+      } else {
+        const type = data.type.toLowerCase();
+
+        if (type.includes("stabil")) normalized = 20;
+        else if (type.includes("leicht")) normalized = 45;
+        else if (type.includes("empfindlich")) normalized = 80;
+      }
+
+      // =========================
+      // AUSGABE
+      // =========================
+      resultDiv.innerHTML = `
+        <h2>Dein Ergebnis</h2>
+        <p><strong>${data.type}</strong></p>
+        <p>${data.description}</p>
+
+        <div class="${survey === "skin" ? "skin-bar-container" : "prevention-bar-container"}">
+          <span class="${survey === "skin" ? "skin-bar-label" : "prevention-bar-label"} left">
+            ${survey === "skin" ? "Trocken" : "Stabil"}
+          </span>
+
+          <div class="${survey === "skin" ? "skin-bar-wrapper" : "prevention-bar-wrapper"}">
+            <div class="${survey === "skin" ? "skin-bar" : "prevention-bar"}">
+              <div class="${survey === "skin" ? "skin-bar-fill" : "prevention-bar-fill"}"
+                   style="width:${normalized}%;">
+              </div>
+            </div>
+          </div>
+
+          <span class="${survey === "skin" ? "skin-bar-label" : "prevention-bar-label"} right">
+            ${survey === "skin" ? "Ölig" : "Empfindlich"}
+          </span>
         </div>
-      </div>
-      <span class="skin-bar-label right">Ölig</span>
-    </div>
 
-    <div style="display:flex; gap:20px; margin-top:10px;">
-      <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-        <h3>Geeignete Inhaltsstoffe</h3>
-        <div>
-          ${data.recommended.split(',').map(i => `• ${i.trim()}<br>`).join('')}
+        <div style="display:flex; gap:20px; margin-top:15px;">
+          <div style="flex:1; padding:12px; border:1px solid #ccc; border-radius:8px;">
+            <h3>Geeignete Inhaltsstoffe</h3>
+            ${data.recommended.split(',').map(i => `• ${i.trim()}<br>`).join('')}
+          </div>
+          <div style="flex:1; padding:12px; border:1px solid #ccc; border-radius:8px;">
+            <h3>Zu vermeiden</h3>
+            ${data.to_avoid.split(',').map(i => `• ${i.trim()}<br>`).join('')}
+          </div>
         </div>
-      </div>
-      <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-        <h3>Zu vermeiden</h3>
-        <div>
-          ${data.to_avoid.split(',').map(i => `• ${i.trim()}<br>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-
-} else {
-  const minPoints = 6;
-  const maxPoints = 30;
-  const normalized = ((totalPoints - minPoints) / (maxPoints - minPoints)) * 100;
-
-  resultDiv.innerHTML = `
-    <h2>Dein Ergebnis</h2>
-    <p><strong>${data.type}</strong></p>
-    <p>${data.description}</p>
-
-    <!-- Präventions-Balken -->
-    <div class="prevention-bar-container">
-      <span class="prevention-bar-label left">Stabil</span>
-      <div class="prevention-bar-wrapper">
-        <div class="prevention-bar">
-          <div class="prevention-bar-fill" style="width: ${normalized}%;"></div>
-        </div>
-      </div>
-      <span class="prevention-bar-label right">Empfindlich</span>
-    </div>
-
-    <div style="display:flex; gap:20px; margin-top:10px;">
-      <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-        <h3>Geeignete Inhaltsstoffe</h3>
-        <div>
-          ${data.recommended.split(',').map(i => `• ${i.trim()}<br>`).join('')}
-        </div>
-      </div>
-      <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-        <h3>Zu vermeiden</h3>
-        <div>
-          ${data.to_avoid.split(',').map(i => `• ${i.trim()}<br>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-
+      `;
 
       resultDiv.scrollIntoView({ behavior: "smooth" });
+
     } catch (err) {
       console.error("Fehler beim Abrufen des Ergebnisses:", err);
     }

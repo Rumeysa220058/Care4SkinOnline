@@ -12,15 +12,16 @@ header {
   position: fixed;      /*fixiert den Header */
   top: 0;               /* immer oben */
   left: 0;
-  width: 100%; 
-  margin: 0 auto;       /* zentriert den Header */
-  background: rgba(255,255,255,0.9);
+  width: 100%;
+  background: white;
   padding: 1rem 2rem;
-  display: flex; /* Flexbox für Layout */
-  justify-content: space-between; 
-  align-items: center; 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
-  box-sizing: border-box; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  margin: 0;
+
 }
 
 /* Body */
