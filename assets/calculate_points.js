@@ -5,6 +5,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    // Prüfen, ob alle Fragen beantwortet wurden
+const totalQuestions = container.querySelectorAll(".question-card").length;
+const answeredQuestions = new Set(
+  [...container.querySelectorAll("input[type=radio]:checked")]
+    .map(input => input.name)
+).size;
+
+if (answeredQuestions < totalQuestions) {
+  resultDiv.innerHTML = `
+    <p style="
+      color: #b00020;
+      font-weight: bold;
+      background: #fdecea;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #f5c2c7;
+    ">
+    Bitte zuerst alle Fragen beantworten.
+    </p>
+  `;
+  resultDiv.scrollIntoView({ behavior: "smooth" });
+  return; // Ergebnis NICHT berechnen
+}
+
+    e.preventDefault();
 
     // Punkte summieren
     const totalPoints = [...container.querySelectorAll("input[type=radio]:checked")]
