@@ -25,21 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Ergebnis anzeigen
       resultDiv.innerHTML = `
-        <h2>Dein Ergebnis</h2>
-        <p><strong>${data.type}</strong></p>
-        <p>${data.description}</p>
-        <div style="display:flex; gap:20px; margin-top:10px;">
-          <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-            <h3>Geeignete Inhaltsstoffe</h3>
-            <p>${data.recommended}</p>
-          </div>
-          <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
-            <h3>Zu vermeiden</h3>
-            <p>${data.to_avoid}</p>
-          </div>
-        </div>
-      `;
-
+  <h2>Dein Ergebnis</h2>
+  <p><strong>${data.type}</strong></p>
+  <p>${data.description}</p>
+  <div style="display:flex; gap:20px; margin-top:10px;">
+    <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
+      <h3>Geeignete Inhaltsstoffe</h3>
+      <div>
+        ${data.recommended.split(',').map(i => `• ${i.trim()}<br>`).join('')}
+      </div>
+    </div>
+    <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
+      <h3>Zu vermeiden</h3>
+      <div>
+        ${data.to_avoid.split(',').map(i => `• ${i.trim()}<br>`).join('')}
+      </div>
+    </div>
+  </div>
+`;
       resultDiv.scrollIntoView({ behavior: "smooth" });
     } catch (err) {
       console.error("Fehler beim Abrufen des Ergebnisses:", err);
