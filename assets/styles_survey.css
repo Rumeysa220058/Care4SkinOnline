@@ -1,11 +1,19 @@
-*{
-  background-image: url('Hintergrundbild.jpg');
+body.survey-page {
+  min-height: 100vh;
+  margin: 0;
+  background-image: 
+    url("Hintergrundbild.png"),
+    linear-gradient(to bottom, rgba(0,0,0,0) 0%, #001f3f 100%);
+  background-repeat: no-repeat;
+  background-size: 200%, 100%;
+  background-position: top center, center;
 }
+
 
 /* Header */
 body.survey-page header {
   width: 100%;
-  background: rgba(255,255,255,0.9);
+  background: white;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
