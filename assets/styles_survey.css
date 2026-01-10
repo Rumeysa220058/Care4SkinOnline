@@ -122,3 +122,41 @@ body.survey-page header {
   .survey-info { padding: 16px; }
   .survey-btn { width: 100%; }
 }
+.skin-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+  max-width: 600px; /* passt zur Ergebnisbox */
+}
+
+.skin-bar-label {
+  font-size: 0.9rem;
+  color: #004a70;
+}
+
+.skin-bar {
+  flex: 1;
+  height: 16px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skin-bar-fill {
+  height: 100%;
+  background-color: #007acc;
+  width: 0%; /* wird JS gesetzt */
+  border-radius: 8px 0 0 8px;
+  transition: width 0.5s ease-in-out;
+
+  /* NEU: Text zentrieren */
+  display: flex;
+  align-items: center;       /* vertikal zentriert */
+  justify-content: flex-end; /* rechtsbündig, Text am Ende */
+  padding-right: 5px;        /* Abstand zum rechten Rand */
+  color: white;              /* Textfarbe */
+  font-weight: bold;
+  font-size: 0.9rem;
+}
