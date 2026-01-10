@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await res.json();
 
-      // Ergebnis anzeigen
+     
+// Ergebnis anzeigen
 // Ergebnis anzeigen
 if (survey === 'skin') {
   const minPoints = 6;
   const maxPoints = 30;
   const normalized = ((totalPoints - minPoints) / (maxPoints - minPoints)) * 100;
 
-  // HTML erzeugen
   resultDiv.innerHTML = `
     <h2>Dein Ergebnis</h2>
     <p><strong>${data.type}</strong></p>
@@ -39,8 +39,11 @@ if (survey === 'skin') {
     <!-- Hauttyp-Balken -->
     <div class="skin-bar-container">
       <span class="skin-bar-label left">Trocken</span>
-      <div class="skin-bar">
-        <div class="skin-bar-fill"></div>
+      <div class="skin-bar-wrapper">
+        <div class="skin-bar">
+          <div class="skin-bar-fill" style="width: ${normalized}%;"></div>
+        </div>
+        <span class="skin-bar-percent">${Math.round(normalized)}%</span>
       </div>
       <span class="skin-bar-label right">Ölig</span>
     </div>
@@ -61,20 +64,28 @@ if (survey === 'skin') {
     </div>
   `;
 
-  // Balken füllen und Prozentanzeige setzen
-  const barFill = resultDiv.querySelector('.skin-bar-fill');
-  if (barFill) {
-  barFill.style.width = normalized + '%';
-  barFill.textContent = Math.round(normalized) + '%'; // Prozentzahl bleibt
-}
-}
+} else {
+  const minPoints = 6;
+  const maxPoints = 30;
+  const normalized = ((totalPoints - minPoints) / (maxPoints - minPoints)) * 100;
 
-else {
-  // Präventions-Umfrage bleibt unverändert
   resultDiv.innerHTML = `
     <h2>Dein Ergebnis</h2>
     <p><strong>${data.type}</strong></p>
     <p>${data.description}</p>
+
+    <!-- Präventions-Balken -->
+    <div class="prevention-bar-container">
+      <span class="prevention-bar-label left">Stabil</span>
+      <div class="prevention-bar-wrapper">
+        <div class="prevention-bar">
+          <div class="prevention-bar-fill" style="width: ${normalized}%;"></div>
+        </div>
+        <span class="prevention-bar-percent">${Math.round(normalized)}%</span>
+      </div>
+      <span class="prevention-bar-label right">Empfindlich</span>
+    </div>
+
     <div style="display:flex; gap:20px; margin-top:10px;">
       <div style="flex:1; padding:10px; border:1px solid #ccc; border-radius:8px;">
         <h3>Geeignete Inhaltsstoffe</h3>
@@ -91,6 +102,8 @@ else {
     </div>
   `;
 }
+
+
 
       resultDiv.scrollIntoView({ behavior: "smooth" });
     } catch (err) {
