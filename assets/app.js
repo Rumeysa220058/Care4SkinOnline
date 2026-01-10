@@ -42,24 +42,5 @@ fetch(`api/get_questions.php?survey=${survey}`)
     })
     .catch(err => console.error("Fehler beim Laden der Fragen:", err));
 
-  // ✅ Ergebnisanzeige – GARANTIERT sichtbar
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    resultDiv.innerHTML = `
-      <h2>Ergebnis</h2>
-      <div style="display:flex; gap:20px;">
-        <div style="flex:1; border:1px solid #ccc; padding:10px;">
-          <h3>geeignete Inhaltstoffe (empfohlen)</h3>
-          <p>Es funktioniert ✅</p>
-        </div>
-        <div style="flex:1; border:1px solid #ccc; padding:10px;">
-          <h3>Zu vermeidende Inhaltstoffe</h3>
-          <p>Es funktioniert ✅</p>
-        </div>
-      </div>
-    `;
-
-    resultDiv.scrollIntoView({ behavior: "smooth" });
-  });
+  
 });

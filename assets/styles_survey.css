@@ -162,15 +162,7 @@ body.survey-page header {
   transition: width 0.5s ease-in-out;
 }
 
-.skin-bar-percent,
-.prevention-bar-percent {
-  position: absolute;
-  top: -20px;  /* über Balken */
-  right: 0;
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #007acc;
-}
+
 .prevention-bar {
   width: 100%;
   height: 16px;

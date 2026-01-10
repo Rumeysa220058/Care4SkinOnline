@@ -43,7 +43,6 @@ if (survey === 'skin') {
         <div class="skin-bar">
           <div class="skin-bar-fill" style="width: ${normalized}%;"></div>
         </div>
-        <span class="skin-bar-percent">${Math.round(normalized)}%</span>
       </div>
       <span class="skin-bar-label right">Ölig</span>
     </div>
@@ -81,7 +80,6 @@ if (survey === 'skin') {
         <div class="prevention-bar">
           <div class="prevention-bar-fill" style="width: ${normalized}%;"></div>
         </div>
-        <span class="prevention-bar-percent">${Math.round(normalized)}%</span>
       </div>
       <span class="prevention-bar-label right">Empfindlich</span>
     </div>

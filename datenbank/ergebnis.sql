@@ -38,7 +38,7 @@ VALUES
 
 
 -- Tabelle für Präventions-Hauttypen
-DROP TABLE IF EXISTS spr_survey_prevention_results;
+DROP TABLE IF EXISTS  ;
 
 CREATE TABLE spr_survey_prevention_results (
     spr_id INT AUTO_INCREMENT PRIMARY KEY,
