@@ -5,7 +5,7 @@ $local = true; // setze auf false, wenn du auf Railway deployst
 if ($local) {
     $host = "127.0.0.1";          // z. B. XAMPP MySQL Host
     $port = 3306;                 // Standard MySQL-Port
-    $db   = "Localhost";    // Name deiner lokalen Datenbank
+    $db   = "care4skin";    // Name deiner lokalen Datenbank
     $user = "root";               // XAMPP Standard: root
     $pass = "";                   // XAMPP Standard: kein Passwort
 } else {
