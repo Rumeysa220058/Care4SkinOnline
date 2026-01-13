@@ -1,6 +1,6 @@
 <?php
 
-$local = false; // setze auf false, wenn du auf Railway deployst
+$local = true; // setze auf false, wenn du auf Railway deployst
 
 if ($local) {
     $host = "localhost";          // z. B. XAMPP MySQL Host
@@ -9,7 +9,8 @@ if ($local) {
     $user = "root";               // XAMPP Standard: root
     $pass = "";                   // XAMPP Standard: kein Passwort
 } else {
-   
+    // ---------------------------
+    // Railway Verbindung
     $host = getenv("MYSQLHOST");
     $port = getenv("MYSQLPORT");
     $db   = getenv("MYSQLDATABASE");
