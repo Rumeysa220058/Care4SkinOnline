@@ -1,4 +1,9 @@
 {
+   "name": "care4skin",
+   "version": "1.0.0",
+   "scripts": {
+   "start": "node index.js"
+
   "devDependencies": {
     "cypress": "^15.8.2"
   }
