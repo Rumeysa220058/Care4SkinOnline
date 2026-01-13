@@ -12,7 +12,7 @@ try {
         $user,
         $pass
     );
-    echo "DB Verbindung erfolgreich!";
+    // echo nur lokal zum Testen
 } catch (PDOException $e) {
     die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
 }
