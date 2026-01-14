@@ -40,7 +40,7 @@ fetch(`api/get_questions.php?survey=${survey}`)
         container.appendChild(card);
       });
     })
-    .catch(err => console.error("Fehler beim Laden der Fragen:", err));
+    .catch(err => console.error("Fehler beim Laden der Fragen:" + err));
 
   
 });
