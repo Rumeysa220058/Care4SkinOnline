@@ -1,28 +1,37 @@
 <?php
 
-$local = true; // setze auf false, wenn du auf Railway deployst
+$host = getenv("MYSQLHOST");        // Variable für Host
+$port = getenv("MYSQLPORT");        // Variable für Port
+$db   = getenv("MYSQLDATABASE");    // Variable für Datenbank
+$user = getenv("MYSQLUSER");        // Variable für Username
+$pass = getenv("MYSQLPASSWORD");    // Variable für Passwort
 
-if ($local) {
-    $host = "127.0.0.1";          // z. B. XAMPP MySQL Host
-    $port = 3306;                 // Standard MySQL-Port
-    $db   = "care4skin";    // Name deiner lokalen Datenbank
-    $user = "root";               // XAMPP Standard: root
-    $pass = "";                   // XAMPP Standard: kein Passwort
-} else {
-    // ---------------------------
-    // Railway Verbindung
-    $host = getenv("MYSQLHOST");
-    $port = getenv("MYSQLPORT");
-    $db   = getenv("MYSQLDATABASE");
-    $user = getenv("MYSQLUSER");
-    $pass = getenv("MYSQLPASSWORD");
-}
-
-// ---------------------------
-// PDO-Verbindung aufbauen
 try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8", $user, $pass);
-    // echo "Verbindung erfolgreich!";
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$db;charset=utf8",
+        $user,
+        $pass
+    );
+    // echo nur lokal zum Testen
 } catch (PDOException $e) {
-    die("Fehler bei der Datenbankverbindung: " . $e->getMessage());
+    die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
 }
+
+//diesen Teil beim Hosting verwendet
+
+//<?php
+
+//$host = "mysql80.local:3307";   // MySQL Server (lokal)
+//$db   = "u242260db2";          // Datenbankname
+//$user = "u242260db2";         // Standard XAMPP Benutzer
+//$pass = "123456";            // Standard XAMPP Passwort (leer)
+
+//try {
+//    $pdo = new PDO(
+//        "mysql:host=$host;dbname=$db;charset=utf8",
+//        $user,
+//        $pass
+//    );
+//} catch (PDOException $e) {
+//    die("Datenbankverbindung fehlgeschlagen");
+//}
